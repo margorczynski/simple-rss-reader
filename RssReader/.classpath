@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" output="target/classes" path="src">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/eclipse-jee-juno-SR1-win32-x86_64/eclipse/plugins/org.eclipse.osgi_3.8.1.v20120830-144521.jar" sourcepath="D:/eclipse-jee-juno-SR1-win32-x86_64/eclipse/plugins/org.eclipse.osgi_3.8.1.v20120830-144521.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse-jee-juno-SR1-win32-x86_64/eclipse/plugins/org.eclipse.core.commands_3.6.1.v20120814-150512.jar" sourcepath="D:/eclipse-jee-juno-SR1-win32-x86_64/eclipse/plugins/org.eclipse.core.commands_3.6.1.v20120814-150512.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse-jee-juno-SR1-win32-x86_64/eclipse/plugins/org.eclipse.equinox.common_3.6.100.v20120522-1841.jar" sourcepath="D:/eclipse-jee-juno-SR1-win32-x86_64/eclipse/plugins/org.eclipse.equinox.common_3.6.100.v20120522-1841.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse-jee-juno-SR1-win32-x86_64/eclipse/plugins/org.eclipse.equinox.registry_3.5.200.v20120522-1841.jar" sourcepath="D:/eclipse-jee-juno-SR1-win32-x86_64/eclipse/plugins/org.eclipse.equinox.registry_3.5.200.v20120522-1841.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse-jee-juno-SR1-win32-x86_64/eclipse/plugins/org.eclipse.core.runtime_3.8.0.v20120521-2346.jar" sourcepath="D:/eclipse-jee-juno-SR1-win32-x86_64/eclipse/plugins/org.eclipse.core.runtime_3.8.0.v20120521-2346.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse-jee-juno-SR1-win32-x86_64/eclipse/plugins/org.eclipse.text_3.5.200.v20120523-1310.jar" sourcepath="D:/eclipse-jee-juno-SR1-win32-x86_64/eclipse/plugins/org.eclipse.text_3.5.200.v20120523-1310.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse-jee-juno-SR1-win32-x86_64/eclipse/plugins/org.eclipse.swt.win32.win32.x86_64_3.100.1.v4234e.jar" sourcepath="D:/eclipse-jee-juno-SR1-win32-x86_64/eclipse/plugins/org.eclipse.swt.win32.win32.x86_64_3.100.1.v4234e.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse-jee-juno-SR1-win32-x86_64/eclipse/plugins/org.eclipse.jface_3.8.101.v20120817-083647.jar" sourcepath="D:/eclipse-jee-juno-SR1-win32-x86_64/eclipse/plugins/org.eclipse.jface_3.8.101.v20120817-083647.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse-jee-juno-SR1-win32-x86_64/eclipse/plugins/org.eclipse.jface.text_3.8.1.v20120828-155502.jar" sourcepath="D:/eclipse-jee-juno-SR1-win32-x86_64/eclipse/plugins/org.eclipse.jface.text_3.8.1.v20120828-155502.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse-jee-juno-SR1-win32-x86_64/eclipse/plugins/org.eclipse.ui.workbench_3.103.1.v20120906-120042.jar" sourcepath="D:/eclipse-jee-juno-SR1-win32-x86_64/eclipse/plugins/org.eclipse.ui.workbench_3.103.1.v20120906-120042.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse-jee-juno-SR1-win32-x86_64/eclipse/plugins/com.ibm.icu_4.4.2.v20110823.jar" sourcepath="D:/eclipse-jee-juno-SR1-win32-x86_64/eclipse/plugins/com.ibm.icu_4.4.2.v20110823.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse-jee-juno-SR1-win32-x86_64/eclipse/plugins/org.eclipse.ui.forms_3.5.200.v20120705-114351.jar" sourcepath="D:/eclipse-jee-juno-SR1-win32-x86_64/eclipse/plugins/org.eclipse.ui.forms_3.5.200.v20120705-114351.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>
