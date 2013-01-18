@@ -1,13 +1,21 @@
 package org.projekt.rssreader.gui;
 
+import org.projekt.rssreader.gui.dialog.*;
+
 import org.eclipse.swt.widgets.Shell;
+
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.FileDialog;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.dialogs.InputDialog;
+import org.eclipse.jface.dialogs.IInputValidator;
+import org.eclipse.jface.window.Window;
 
 
 public class ReaderMenuToolbar
@@ -50,8 +58,13 @@ public class ReaderMenuToolbar
 		Menu menu_2 = new Menu(mntmEdit);
 		mntmEdit.setMenu(menu_2);
 		
-		MenuItem mntmAddGroup = new MenuItem(menu_2, SWT.NONE);
-		mntmAddGroup.setText("Add group");
+		MenuItem mntmAddChannelGroup = new MenuItem(menu_2, SWT.NONE);
+		mntmAddChannelGroup.setText("Add channel group");
+		mntmAddChannelGroup.addSelectionListener(new AddChannelGroupItemListener());
+		
+		MenuItem mntmAddChannel = new MenuItem(menu_2, SWT.NONE);
+		mntmAddChannel.setText("Add channel");
+		mntmAddChannel.addSelectionListener(new AddChannelItemListener());
 		
 		new MenuItem(menu_2, SWT.SEPARATOR);
 		
@@ -119,7 +132,52 @@ public class ReaderMenuToolbar
 		}
 	}
 	
+	private class AddChannelGroupItemListener extends SelectionAdapter
+	{
+		@Override
+		public void widgetSelected(SelectionEvent e)
+		{
+			InputDialog addGroupDialog = new InputDialog(shl, "Enter group name", "Enter 3-16 characters", "", new LengthValidator());
+			
+			if (addGroupDialog.open() == Window.OK) 
+			{
+				treeRef.addChannelGroup(addGroupDialog.getValue());
+			}        
+		}
+		
+		private class LengthValidator implements IInputValidator 
+		{
+			public String isValid(String input)
+			{
+			    int len = input.length();
+
+			    if (len < 3) return "Too short";
+			    if (len > 16) return "Too long";
+
+			    return null;
+			  }	  
+		}
+	}
+	
+	private class AddChannelItemListener extends SelectionAdapter
+	{
+		@Override
+		public void widgetSelected(SelectionEvent e)
+		{
+			AddChannelDialog addChannelDialog = new AddChannelDialog(shl, treeRef);
+			
+			addChannelDialog.open();
+		}
+	}
+	
+	
+	public void setTreeRef(ChannelGroupTree treeRef)
+	{
+		this.treeRef = treeRef;
+	}
+	
 	private MainWindow windowRef;
+	private ChannelGroupTree treeRef;
 	
 	private Shell shl; 
 }

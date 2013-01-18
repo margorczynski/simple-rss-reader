@@ -138,16 +138,32 @@ public class ChannelGroupTree
 		treeViewer.refresh();
 	}
 	
-	public void addChannelGroup(ChannelGroup group)
+	public void addChannelGroup(String groupName)
 	{
+		ChannelGroup group = new ChannelGroup(groupName);
+		
 		model.getGroups().add(group);
 		
 		treeViewer.refresh();
 	}
 	
-	public void addChannel(ChannelGroup group, Channel channel)
+	public void addChannel(String channelGroupName, String channelUrl)
 	{
-		model.getGroups().get(model.getGroups().indexOf(group)).getChannels().add(channel);
+		ChannelGroup channelGroup = null;
+		
+		for(ChannelGroup group : model.getGroups())
+		{
+			if(group.getName().equals(channelGroupName))
+			{
+				channelGroup = group;
+				
+				break;
+			}
+		}
+		
+		Channel channel = new Channel(channelUrl, channelGroup);
+		
+		channelGroup.getChannels().add(channel);
 		
 		treeViewer.refresh();
 	}

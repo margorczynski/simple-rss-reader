@@ -1,6 +1,7 @@
 package org.projekt.rssreader.gui;
 
 import java.io.*;
+
 import java.util.List;
 
 import org.projekt.rssreader.content.tree.ChannelGroup;
@@ -52,13 +53,14 @@ public class MainWindow
 		 * The toolbar with the menu's
 		 */
 		
-		ReaderMenuToolbar readerToolbar = new ReaderMenuToolbar(shlSimpleRssReader, this);
+		chnToolbar = new ReaderMenuToolbar(shlSimpleRssReader, this);
 		
 		/*
 		 * The tree with the channel groups and channels
 		 */
 		
 		chnTree = new ChannelGroupTree(shlSimpleRssReader);
+		chnToolbar.setTreeRef(chnTree);
 		
 		/*
 		 * Table with a list of news pulled from the selected channel
@@ -96,7 +98,7 @@ public class MainWindow
 	                            
 	        ChannelGroup group = (ChannelGroup) in.readObject();
 	        
-	        chnTree.addChannelGroup(group);
+	        chnTree.addChannelGroup(group.getName());
 	        
 	        in.close();
 	        fileIn.close();
@@ -133,6 +135,8 @@ public class MainWindow
 		}
 	}
 	
+	
+	private ReaderMenuToolbar chnToolbar;
 	private ChannelGroupTree chnTree;
 	private ChannelListTable chnTable;
 	private ChannelContentViewer chnViewer;
