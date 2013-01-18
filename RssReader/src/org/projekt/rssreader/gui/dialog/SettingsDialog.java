@@ -1,6 +1,7 @@
 package org.projekt.rssreader.gui.dialog;
 
 import org.projekt.rssreader.gui.MainWindow;
+import org.projekt.rssreader.main.Settings;
 
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
@@ -25,11 +26,15 @@ public class SettingsDialog extends Dialog
 	 * Create the dialog.
 	 * @param parentShell
 	 */
-	public SettingsDialog(Shell parentShell, MainWindow windowRef)
+	public SettingsDialog(Shell parentShell, MainWindow windowRef, Settings settings)
 	{
 		super(parentShell);
 		
 		this.windowRef = windowRef;
+		
+		text.setText(settings.getDefaultUrl());
+		
+		checked = settings.isLoadAtStart();
 	}
 
 	/**

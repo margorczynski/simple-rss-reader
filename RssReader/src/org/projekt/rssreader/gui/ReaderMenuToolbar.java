@@ -1,6 +1,7 @@
 package org.projekt.rssreader.gui;
 
 import org.projekt.rssreader.gui.dialog.*;
+import org.projekt.rssreader.main.Settings;
 
 import org.eclipse.swt.widgets.Shell;
 
@@ -26,10 +27,14 @@ public class ReaderMenuToolbar
 	 * The constructor of the toolbar class. Takes the shell and main window reference as parameters
 	 * Then creates the toolbars items and sets their listeners
 	 * 
-	 * @see Menu
-	 * @see MenuItem
+	 * @param shl       the main shell of the reader
+	 * @param windowRef the reference to the main window object
+	 * @param settings  the reference to the object holding the settings of the reader
+	 * 
+	 * @see 			Menu
+	 * @see 			MenuItem
 	 */
-	public ReaderMenuToolbar(Shell shl, MainWindow windowRef)
+	public ReaderMenuToolbar(Shell shl, MainWindow windowRef, Settings settings)
 	{
 		this.shl = shl;
 		this.windowRef = windowRef;
@@ -235,7 +240,7 @@ public class ReaderMenuToolbar
 		@Override
 		public void widgetSelected(SelectionEvent e)
 		{
-			SettingsDialog settingsDialog = new SettingsDialog(shl, windowRef);
+			SettingsDialog settingsDialog = new SettingsDialog(shl, windowRef, settings);
 			
 			settingsDialog.open();
 		}
@@ -253,6 +258,8 @@ public class ReaderMenuToolbar
 	
 	private MainWindow windowRef;
 	private ChannelGroupTree treeRef;
+	
+	private Settings settings;
 	
 	private Shell shl; 
 }

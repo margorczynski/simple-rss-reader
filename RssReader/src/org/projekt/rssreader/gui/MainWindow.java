@@ -58,7 +58,7 @@ public class MainWindow
 		 * The toolbar with the menu's
 		 */
 		
-		chnToolbar = new ReaderMenuToolbar(shlSimpleRssReader, this);
+		chnToolbar = new ReaderMenuToolbar(shlSimpleRssReader, this, settings);
 		
 		/*
 		 * The tree with the channel groups and channels
