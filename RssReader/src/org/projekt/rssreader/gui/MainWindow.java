@@ -8,6 +8,8 @@ import org.projekt.rssreader.content.tree.ChannelGroup;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.layout.FormLayout;
+import org.eclipse.swt.graphics.Image;
+
 
 public class MainWindow
 {
@@ -20,6 +22,8 @@ public class MainWindow
 	public void open()
 	{
 		Display display = Display.getDefault();
+		smallIcon = new Image(display, "media/rss16.png");
+		largeIcon = new Image(display, "media/rss32.png");
 		createContents();
 		shlSimpleRssReader.open();
 		shlSimpleRssReader.layout();
@@ -42,6 +46,7 @@ public class MainWindow
 		shlSimpleRssReader.setSize(850, 600);
 		shlSimpleRssReader.setText("Simple RSS Reader");
 		shlSimpleRssReader.setLayout(new FormLayout());
+		shlSimpleRssReader.setImages(new Image[] {smallIcon, largeIcon});
 		
 		/*
 		 * The toolbar with the menu's
@@ -131,4 +136,6 @@ public class MainWindow
 	private ChannelGroupTree chnTree;
 	private ChannelListTable chnTable;
 	private ChannelContentViewer chnViewer;
+	
+	private Image smallIcon, largeIcon;
 }
