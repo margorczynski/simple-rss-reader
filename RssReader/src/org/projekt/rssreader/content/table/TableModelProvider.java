@@ -29,5 +29,10 @@ public enum TableModelProvider
 		}
 	}
 	
+	public void clear()
+	{
+		feedElements.clear();
+	}
+	
 	private List<FeedElement> feedElements;
 }

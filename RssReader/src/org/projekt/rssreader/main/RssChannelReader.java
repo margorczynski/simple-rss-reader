@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.URL;
 
 import java.util.List;
-import java.util.LinkedList;
  
 import com.sun.syndication.feed.synd.SyndEntry;
 import com.sun.syndication.feed.synd.SyndFeed;
@@ -24,10 +23,6 @@ public class RssChannelReader
 			reader = new XmlReader(url);
 			
 		    feed = new SyndFeedInput().build(reader);
-		    
-		    feedTitle = feed.getTitle();
-		    
-		    feedEntries = feed.getEntries();
 		}
 		catch(Exception e)
 		{
@@ -48,33 +43,19 @@ public class RssChannelReader
 	
 	public String getFeedTitle()
 	{
-		return feedTitle;
+		return feed.getTitle();
 	}
 	
 	public String getFeedDescription()
 	{
-		return feedDescription;
+		return feed.getDescription();
 	}
 	
 	public List<SyndEntry> getFeedEntries()
 	{
-		return feedEntries;
-	}
-	
-	public void refresh()
-	{
-		feedTitle = feed.getTitle();
-		
-		feedDescription = feed.getDescription();
-	    
-	    feedEntries = feed.getEntries();
+		return feed.getEntries();
 	}
 	
 	
 	private SyndFeed feed = null;
-	
-	private List<SyndEntry> feedEntries = new LinkedList<SyndEntry>();
-	
-	private String feedTitle;
-	private String feedDescription;
 }

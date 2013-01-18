@@ -1,5 +1,7 @@
 package org.projekt.rssreader.gui;
 
+import java.util.List;
+
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
@@ -40,7 +42,7 @@ public class ChannelGroupTree
 		
 		ChannelGroup gr = new ChannelGroup("TEST");
 		
-		Channel ch = new Channel("http://wiadomosci.wp.pl/ver,rss,rss.xml");
+		Channel ch = new Channel("http://wiadomosci.wp.pl/ver,rss,rss.xml", gr);
 
 		gr.getChannels().add(ch);
 		
@@ -77,7 +79,7 @@ public class ChannelGroupTree
         	{
         		Channel channel = (Channel) thisSelection.getFirstElement();
         		         
-        		tableRef.updateFeedEntries(channel.getReader().getFeedEntries());
+        		tableRef.updateFeedEntries(channel.getFeedEntries());
         	}
 	      }
 	}
@@ -100,6 +102,25 @@ public class ChannelGroupTree
 	        		
 	        		treeViewer.refresh();
 	        	}
+	        	else if(selection.getFirstElement() instanceof Channel)
+	        	{
+	        		Channel o = (Channel) selection.getFirstElement();
+	        		
+	        		o.getGroupRef().getChannels().remove(o);
+	        		
+	        		treeViewer.refresh();
+	        	}
+	        }
+	        if (e.keyCode == SWT.CR)
+	        {
+	        	final IStructuredSelection selection = (IStructuredSelection) treeViewer.getSelection();
+	        	
+	        	if (selection.getFirstElement() instanceof Channel)
+	        	{
+	        		Channel o = (Channel) selection.getFirstElement();
+	        				            
+	        		tableRef.updateFeedEntries(o.getFeedEntries());
+	        	}
 	        }
 		}
 
@@ -109,6 +130,34 @@ public class ChannelGroupTree
 	{
 		this.tableRef = tableRef;
 	}
+	
+	public void reset()
+	{
+		model.getGroups().clear();
+		
+		treeViewer.refresh();
+	}
+	
+	public void addChannelGroup(ChannelGroup group)
+	{
+		model.getGroups().add(group);
+		
+		treeViewer.refresh();
+	}
+	
+	public void addChannel(ChannelGroup group, Channel channel)
+	{
+		model.getGroups().get(model.getGroups().indexOf(group)).getChannels().add(channel);
+		
+		treeViewer.refresh();
+	}
+	
+	public List<ChannelGroup> getChannelGroups()
+	{
+		return model.getGroups();
+	}
+	
+	
 	
 	private TreeViewer treeViewer;
 	

@@ -1,33 +1,53 @@
 package org.projekt.rssreader.content.tree;
 
+import java.util.List;
+
+import java.io.Serializable;
+
 import org.projekt.rssreader.main.RssChannelReader;
 
-public class Channel
+import com.sun.syndication.feed.synd.SyndEntry;
+
+public class Channel implements Serializable
 {
-	public Channel(String url)
+	public Channel(String url, ChannelGroup groupRef)
 	{
-		reader = new RssChannelReader(url);
+		this.groupRef = groupRef;
+		
+		RssChannelReader reader = new RssChannelReader(url);
 		
 		title = reader.getFeedTitle();
 		
 		description = reader.getFeedDescription();
+		
+		feedEntries = reader.getFeedEntries();
 	}
 	
-	public RssChannelReader getReader()
+	public List<SyndEntry> getFeedEntries()
 	{
-		return reader;
+		return feedEntries;
 	}
+	
+	public ChannelGroup getGroupRef()
+	{
+		return groupRef;
+	}
+	
 	public String getTitle()
 	{
 		return title;
 	}
+	
 	public String getDescription()
 	{
 		return description;
 	}
 
+	private static final long serialVersionUID = 1L;
 	
-	private RssChannelReader reader;
+	private List<SyndEntry> feedEntries;
+	
+	private ChannelGroup groupRef;
 	
 	private String title;
 	private String description;

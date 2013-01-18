@@ -11,9 +11,9 @@ public class ChannelModel
 		
 		groups.add(basicGroup);
 		
-		Channel basicChannel1 = new Channel("http://wiadomosci.wp.pl/ver,rss,rss.xml");
+		Channel basicChannel1 = new Channel("http://wiadomosci.wp.pl/ver,rss,rss.xml", basicGroup);
 		
-		Channel basicChannel2 = new Channel("http://tygodnik.onet.pl/1,kategoria.rss");
+		Channel basicChannel2 = new Channel("http://tygodnik.onet.pl/1,kategoria.rss", basicGroup);
 		
 		basicGroup.getChannels().add(basicChannel1);
 		
@@ -32,7 +32,9 @@ public class ChannelModel
 	
 	public void addChannel(String channelGroupName, String url)
 	{
-		groups.get(groups.indexOf(new ChannelGroup(channelGroupName))).getChannels().add(new Channel(url));
+		ChannelGroup group = groups.get(groups.indexOf(new ChannelGroup(channelGroupName)));
+		
+		group.getChannels().add(new Channel(url, group));
 	}
 	
 	private List<ChannelGroup> groups = new LinkedList<ChannelGroup>();

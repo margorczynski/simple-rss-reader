@@ -40,8 +40,15 @@ public class ChannelContentProvider implements ITreeContentProvider
 	}
 
 	@Override
-	public Object getParent(Object element)
+	public Object getParent(Object childElement)
 	{
+		if (childElement instanceof Channel) 
+		{
+			Channel channel = (Channel) childElement;
+		      
+		    return channel.getGroupRef();
+		}
+		
 		return null;
 	}
 
@@ -57,5 +64,5 @@ public class ChannelContentProvider implements ITreeContentProvider
 	}
 
 	
-	private ChannelModel model;// = new ChannelModel();
+	private ChannelModel model;
 }

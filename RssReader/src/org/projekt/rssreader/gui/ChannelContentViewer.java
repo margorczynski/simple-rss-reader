@@ -34,5 +34,10 @@ public class ChannelContentViewer
 		browser.setUrl(url);
 	}
 	
+	public void reset()
+	{
+		browser.setUrl("www.google.pl");
+	}
+	
 	private Browser browser;
 }

@@ -3,7 +3,9 @@ package org.projekt.rssreader.content.tree;
 import java.util.List;
 import java.util.LinkedList;
 
-public class ChannelGroup
+import java.io.Serializable;
+
+public class ChannelGroup implements Serializable
 {
 	public ChannelGroup(String name)
 	{
@@ -35,7 +37,8 @@ public class ChannelGroup
 		return channels;
 	}
 
-
+	static final long serialVersionUID = 1L;
+	
 	private List<Channel> channels = new LinkedList<Channel>();
 	
 	private int sort;

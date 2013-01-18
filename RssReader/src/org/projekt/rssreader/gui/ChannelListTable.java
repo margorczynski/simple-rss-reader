@@ -154,6 +154,15 @@ public class ChannelListTable
 	      }
 	}
 	
+	public void reset()
+	{
+		TableModelProvider.INSTANCE.clear();
+		
+		tableViewer.setInput(TableModelProvider.INSTANCE.getFeedElements());
+		
+		tableViewer.refresh();
+	}
+	
 	
 	private TableViewer tableViewer;
 	private TableColumnLayout tableColumnLayout;
