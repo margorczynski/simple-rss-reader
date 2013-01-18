@@ -70,6 +70,7 @@ public class ReaderMenuToolbar
 		
 		MenuItem mntmSettings = new MenuItem(menu_2, SWT.NONE);
 		mntmSettings.setText("Settings");
+		mntmSettings.addSelectionListener(new SettingsItemListener());
 		
 		MenuItem mntmAbout = new MenuItem(menu, SWT.NONE);
 		mntmAbout.addSelectionListener(new AboutItemListener());
@@ -105,7 +106,7 @@ public class ReaderMenuToolbar
 			
 	        fd.setText("Open");
 	        fd.setFilterPath("./");
-	        String[] filterExt = { "*.group", "*.*" };
+	        String[] filterExt = { "*.xml"};
 	        fd.setFilterExtensions(filterExt);
 	        
 	        String selected = fd.open();
@@ -167,6 +168,17 @@ public class ReaderMenuToolbar
 			AddChannelDialog addChannelDialog = new AddChannelDialog(shl, treeRef);
 			
 			addChannelDialog.open();
+		}
+	}
+	
+	private class SettingsItemListener extends SelectionAdapter
+	{
+		@Override
+		public void widgetSelected(SelectionEvent e)
+		{
+			SettingsDialog settingsDialog = new SettingsDialog(shl, windowRef);
+			
+			settingsDialog.open();
 		}
 	}
 	

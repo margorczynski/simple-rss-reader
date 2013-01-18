@@ -25,8 +25,6 @@ public class ChannelContentViewer
 		fd_styledText.left = new FormAttachment(tree, 6);
 		fd_styledText.right = new FormAttachment(100, -10);
 		browser.setLayoutData(fd_styledText);
-		
-		browser.setUrl("www.google.pl");
 	}
 	
 	public void setContentUrl(String url)
@@ -34,10 +32,18 @@ public class ChannelContentViewer
 		browser.setUrl(url);
 	}
 	
-	public void reset()
+	public void setDefaultUrl(String defaultUrl)
 	{
-		browser.setUrl("www.google.pl");
+		this.defaultUrl = defaultUrl;
 	}
 	
+	public void reset()
+	{
+		browser.setUrl(defaultUrl);
+	}
+	
+	
 	private Browser browser;
+	
+	private String defaultUrl = "www.google.pl";
 }

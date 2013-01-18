@@ -147,6 +147,13 @@ public class ChannelGroupTree
 		treeViewer.refresh();
 	}
 	
+	public void addChannelGroup(List<ChannelGroup> channelGroups)
+	{
+		model.getGroups().addAll(channelGroups);
+		
+		treeViewer.refresh();
+	}
+	
 	public void addChannel(String channelGroupName, String channelUrl)
 	{
 		ChannelGroup channelGroup = null;

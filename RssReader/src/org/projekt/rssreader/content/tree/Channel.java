@@ -14,6 +14,8 @@ public class Channel implements Serializable
 	{
 		this.groupRef = groupRef;
 		
+		this.url = url;
+		
 		RssChannelReader reader = new RssChannelReader(url);
 		
 		title = reader.getFeedTitle();
@@ -42,6 +44,11 @@ public class Channel implements Serializable
 	{
 		return description;
 	}
+	
+	public String getUrl()
+	{
+		return url;
+	}
 
 	private static final long serialVersionUID = 1L;
 	
@@ -51,4 +58,5 @@ public class Channel implements Serializable
 	
 	private String title;
 	private String description;
+	private String url;
 }

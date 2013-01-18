@@ -4,7 +4,6 @@ import org.projekt.rssreader.gui.MainWindow;
 
 public class Main
 {
-
 	/**
 	 * @param args
 	 */

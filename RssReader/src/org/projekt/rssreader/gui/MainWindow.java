@@ -1,10 +1,11 @@
 package org.projekt.rssreader.gui;
 
-import java.io.*;
-
 import java.util.List;
+import java.io.File;
 
 import org.projekt.rssreader.content.tree.ChannelGroup;
+import org.projekt.rssreader.main.ReaderFileIO;
+import org.projekt.rssreader.main.Settings;
 
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
@@ -14,15 +15,13 @@ import org.eclipse.swt.graphics.Image;
 
 public class MainWindow
 {
-
-	protected Shell	shlSimpleRssReader;
-
 	/**
 	 * Open the window.
 	 */
 	public void open()
 	{
 		Display display = Display.getDefault();
+		settings = readerFileIO.loadSettingsFromFile();
 		smallIcon = new Image(display, "media/rss16.png");
 		largeIcon = new Image(display, "media/rss32.png");
 		createContents();
@@ -75,6 +74,12 @@ public class MainWindow
 		
 		chnViewer = new ChannelContentViewer(shlSimpleRssReader, chnTree.getTree(), chnTable.getTableComposite(), chnTree.getTreeFormData(), chnTable.getTableFormData());
 		chnTable.setContentRef(chnViewer);
+		
+		if(settings.isLoadAtStart() && (new File("default.xml")).exists()) openFromFile("default.xml");
+		
+		chnViewer.setDefaultUrl(settings.getDefaultUrl());
+		
+		chnViewer.setContentUrl(settings.getDefaultUrl());
 	}
 	
 	public void resetAll()
@@ -90,51 +95,32 @@ public class MainWindow
 	{
 		resetAll();
 		
-		try
-	    {
-			FileInputStream fileIn = new FileInputStream(filename);
-	         
-	        ObjectInputStream in = new ObjectInputStream(fileIn);
-	                            
-	        ChannelGroup group = (ChannelGroup) in.readObject();
-	        
-	        chnTree.addChannelGroup(group.getName());
-	        
-	        in.close();
-	        fileIn.close();
-	    }catch(IOException e)
-	    {
-	    	e.printStackTrace();        
-	    }
-		catch(ClassNotFoundException e)
-		{
-			e.printStackTrace();
-		}
+		chnTree.addChannelGroup(readerFileIO.loadChannelGroupsFromFile(filename));
 	}
 	
 	public void saveToFile()
 	{
 		List<ChannelGroup> groups = chnTree.getChannelGroups();
 		
-		for(ChannelGroup group : groups)
-		{
-			try
-		    {
-				FileOutputStream fileOut = new FileOutputStream("./" + group.getName() + ".group");
-		         
-		        ObjectOutputStream out = new ObjectOutputStream(fileOut);		                           
-		  
-		        out.writeObject(group);
-		        
-		        out.close();
-		        fileOut.close();
-		    }catch(IOException e)
-		    {
-		    	e.printStackTrace();        
-		    }
-		}
+		readerFileIO.saveChannelGroupsToFile(groups);
 	}
 	
+	public void saveSettingsToFile()
+	{
+		readerFileIO.saveSettingsToFile(settings);
+	}
+	
+	public void setSettings(String defaultUrl, boolean isLoadAtStart)
+	{
+		settings.setDefaultUrl(defaultUrl);
+		settings.setLoadAtStart(isLoadAtStart);
+	}
+	
+	protected Shell	shlSimpleRssReader;
+	
+	private Settings settings;
+	
+	private ReaderFileIO readerFileIO = new ReaderFileIO();
 	
 	private ReaderMenuToolbar chnToolbar;
 	private ChannelGroupTree chnTree;
