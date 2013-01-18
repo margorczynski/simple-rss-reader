@@ -2,10 +2,13 @@ package org.projekt.rssreader.main;
 
 import org.projekt.rssreader.gui.MainWindow;
 
+/*
+ * The entry-point class for the application
+ */
 public class Main
 {
-	/**
-	 * @param args
+	/*
+	 * The main method of the entry class. Creates the main window of the application and opens it
 	 */
 	public static void main(String[] args)
 	{

@@ -12,7 +12,13 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.graphics.Image;
 
-
+/*
+ * The main window and shell of the reader
+ * All of the GUI was made using SWT/JFace
+ * 
+ * @see SWT
+ * @see JFace
+ */
 public class MainWindow
 {
 	/**
@@ -82,6 +88,9 @@ public class MainWindow
 		chnViewer.setContentUrl(settings.getDefaultUrl());
 	}
 	
+	/*
+	 * Resets the GUI and it's contents
+	 */
 	public void resetAll()
 	{
 		chnViewer.reset();
@@ -91,6 +100,11 @@ public class MainWindow
 		chnTable.reset();
 	}
 	
+	/*
+	 * Resets everything and loads groups with channels from a file
+	 * 
+	 * @param filename the absolute path to the file
+	 */
 	public void openFromFile(String filename)
 	{
 		resetAll();
@@ -98,6 +112,9 @@ public class MainWindow
 		chnTree.addChannelGroup(readerFileIO.loadChannelGroupsFromFile(filename));
 	}
 	
+	/*
+	 * Saves the groups in the tree's model to a file
+	 */
 	public void saveToFile()
 	{
 		List<ChannelGroup> groups = chnTree.getChannelGroups();
@@ -105,11 +122,20 @@ public class MainWindow
 		readerFileIO.saveChannelGroupsToFile(groups);
 	}
 	
+	/*
+	 * Saves the current settings to a file
+	 */
 	public void saveSettingsToFile()
 	{
 		readerFileIO.saveSettingsToFile(settings);
 	}
 	
+	/*
+	 * Sets the current settings with values in the parameters
+	 * 
+	 * @param defaultUrl    the default URL loaded in the browser at startup and reset with New
+	 * @param isLoadAtStart boolean value that decides if the default channel groups should be loaded at startup
+	 */
 	public void setSettings(String defaultUrl, boolean isLoadAtStart)
 	{
 		settings.setDefaultUrl(defaultUrl);
