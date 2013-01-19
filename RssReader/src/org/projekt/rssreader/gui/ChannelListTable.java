@@ -28,8 +28,21 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.projekt.rssreader.content.table.FeedElement;
 import org.projekt.rssreader.content.table.TableModelProvider;
 
+/*
+ * Class used for creation of the object representing the table with channel names in the main window
+ */
 public class ChannelListTable
 {
+	/*
+	 * The constructor of the table. Takes the shell and tree references as parameters. Initializes the table with basic configuration and adds listeners to the viewer
+	 * 
+	 * @param shl  reference to the shell object
+	 * @param tree reference to the tree object
+	 * 
+	 * @see Table
+	 * @see TableViewer
+	 * @see TableColumnLayout
+	 */
 	public ChannelListTable(Shell shl, Tree tree)
 	{
 		tableComposite = new Composite(shl, SWT.NONE);
@@ -58,6 +71,11 @@ public class ChannelListTable
 		
 	}
 	
+	/*
+	 * Creates the columns of the table and sets their provider to properly map the data to the cells
+	 * 
+	 * @see ColumnLabelProvider
+	 */
 	private void createColumns() 
 	{
 	    String[] titles = { "Headline", "Received Date", "Publishing Date"};
@@ -103,6 +121,15 @@ public class ChannelListTable
 		tableColumnLayout.setColumnData(publishDateColumn.getColumn(), new ColumnWeightData(30, 200, true)); 
 	}
 	
+	/*
+	 * Creates a single column with attributes stated as parameters. Returns the reference to the column object
+	 * 
+	 * @param title     the title of the column
+	 * @param bound     the width of the column
+	 * @param colNumber the number of the column
+	 * 
+	 * @return the reference to the created column object
+	 */
 	private TableViewerColumn createTableViewerColumn(String title, int bound, final int colNumber) 
 	{
 	    final TableViewerColumn viewerColumn = new TableViewerColumn(tableViewer, SWT.NONE);
@@ -114,6 +141,14 @@ public class ChannelListTable
 	    return viewerColumn;
 	}
 	
+	/*
+	 * Updates the entries in the model with entries from a list which reference is passed as the parameter. Then it refreshes the viewer to see the changes
+	 * 
+	 * @param feedEntries reference to the list containing the entries
+	 * 
+	 * @see SyndEntry
+	 * @see TableModelProvider
+	 */
 	public void updateFeedEntries(List<SyndEntry> feedEntries)
 	{
 		TableModelProvider.INSTANCE.setFeedElements(feedEntries);
@@ -123,21 +158,48 @@ public class ChannelListTable
 		tableViewer.refresh();
 	}
 	
+	/*
+	 * Returns the reference to the composite object of the table
+	 * 
+	 * @return the reference to the composite
+	 * 
+	 * @see Composite
+	 */
 	public Composite getTableComposite()
 	{
 		return tableComposite;
 	}
 	
+	/*
+	 * Return the reference to the form data object of the table
+	 * 
+	 * @return the reference to the form data object
+	 * 
+	 * @see FormData
+	 */
 	public FormData getTableFormData()
 	{
 		return fdTable;
 	}
 	
+	/*
+	 * Sets the content viewers reference to the reference passed as the parameter
+	 * 
+	 * @param contentRef the reference to the content viewer object
+	 * 
+	 *  @see ChannelContentViewer
+	 */
 	public void setContentRef(ChannelContentViewer contentRef)
 	{
 		this.contentRef = contentRef;
 	}
 	
+	/*
+	 * The double click listener class of the table viewer. Loads the page under the double clicked link to the content viewer
+	 * 
+	 *  @see IDoubleClickListener
+	 *  @see IStructuredSelection
+	 */
 	private class TableDoubleClickListener implements IDoubleClickListener
 	{
 	      public void doubleClick(DoubleClickEvent event) 
@@ -154,6 +216,11 @@ public class ChannelListTable
 	      }
 	}
 	
+	/*
+	 * Clears the model and refreshes the table viewer for changes to be visible
+	 * 
+	 * @see TableModelProvider
+	 */
 	public void reset()
 	{
 		TableModelProvider.INSTANCE.clear();

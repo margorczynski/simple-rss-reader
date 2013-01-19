@@ -20,8 +20,18 @@ import org.projekt.rssreader.content.tree.Channel;
 import org.projekt.rssreader.content.tree.ChannelModel;
 import org.projekt.rssreader.content.tree.ChannelLabelProvider;
 
+/*
+ * Class used for creation of the object representing the tree of the main window
+ */
 public class ChannelGroupTree
 {
+	/*
+	 * The constructor of the tree object. It takes the shell reference as a parameter. Creates the TreeViewer and Tree objects and assigns to them providers and listeners
+	 * 
+	 * @see TreeViewer
+	 * @see Tree
+	 * @see Shell
+	 */
 	public ChannelGroupTree(Shell shl)
 	{
 		treeViewer = new TreeViewer(shl, SWT.BORDER | SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
@@ -53,17 +63,32 @@ public class ChannelGroupTree
 		treeViewer.setInput(gr);
 	}
 	
+	/*
+	 * Returns the reference to the tree object
+	 * 
+	 * @return the reference to the tree object
+	 */
 	public Tree getTree()
 	{
 		return tree;
 	}
 	
+	/*
+	 * Returns the reference to the form data of the tree
+	 * 
+	 * @return the reference to the form data object
+	 */
 	public FormData getTreeFormData()
 	{
 		return fdTree;
 	}
 	
-	
+	/*
+	 * The double click listener class of the tree viewer. When a group name is double clicked it expands the group, if a channel then it loads the entries to the table
+	 * 
+	 * @see IDoubleClickListener
+	 * @see IStructuredSelection
+	 */
 	private class TreeDoubleClickListener implements IDoubleClickListener
 	{
 	      public void doubleClick(DoubleClickEvent event) 
@@ -84,6 +109,13 @@ public class ChannelGroupTree
 	      }
 	}
 	
+	/*
+	 * The key listener of the tree. On pressing delete depending on the selected item it removes channels or whole groups, on pressing enter it loads the channel entries to the table
+	 * 
+	 * @see KeyAdapter
+	 * @see IStructuredSelection
+	 * @see ChannelListTable
+	 */
 	private class TreeKeyListener extends KeyAdapter
 	{
 		public void keyReleased(final KeyEvent e) 
@@ -126,11 +158,19 @@ public class ChannelGroupTree
 
 	}
 	
+	/*
+	 * Sets the table object reference
+	 * 
+	 *  @param tableRef the reference to the table object
+	 */
 	public void setTableRef(ChannelListTable tableRef)
 	{
 		this.tableRef = tableRef;
 	}
 	
+	/*
+	 * Clears the model and refreshes the tree viewer for changes to be visible
+	 */
 	public void reset()
 	{
 		model.getGroups().clear();
@@ -138,6 +178,13 @@ public class ChannelGroupTree
 		treeViewer.refresh();
 	}
 	
+	/*
+	 * Adds a channel group to the model and refreshes the tree viewer for changes to be visible
+	 * 
+	 * @param groupName a string containing the name of the group
+	 * 
+	 * @see ChannelGroup
+	 */
 	public void addChannelGroup(String groupName)
 	{
 		ChannelGroup group = new ChannelGroup(groupName);
@@ -147,6 +194,13 @@ public class ChannelGroupTree
 		treeViewer.refresh();
 	}
 	
+	/*
+	 * Adds a channel group to the model and refreshes the tree viewer for changes to be visible. Uses a list reference as a parameter
+	 * 
+	 * @param channelGroups reference to the list containing the channel groups
+	 * 
+	 * @see ChannelGroup
+	 */
 	public void addChannelGroup(List<ChannelGroup> channelGroups)
 	{
 		model.getGroups().addAll(channelGroups);
@@ -154,6 +208,15 @@ public class ChannelGroupTree
 		treeViewer.refresh();
 	}
 	
+	/*
+	 * Adds a channel to a group. It takes the channels URL and the group name as parameters
+	 * 
+	 * @param channelGroupName string containing the names of the group
+	 * @param channelUrl       string containing the URL of the channel
+	 * 
+	 * @see ChannelGroup
+	 * @see Channel
+	 */
 	public void addChannel(String channelGroupName, String channelUrl)
 	{
 		ChannelGroup channelGroup = null;
@@ -175,6 +238,11 @@ public class ChannelGroupTree
 		treeViewer.refresh();
 	}
 	
+	/*
+	 * Returns the reference to the list with channel groups
+	 * 
+	 * @return the reference to the list object with channel groups
+	 */
 	public List<ChannelGroup> getChannelGroups()
 	{
 		return model.getGroups();

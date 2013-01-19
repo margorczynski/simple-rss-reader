@@ -20,11 +20,22 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 
+/*
+ * Class used for creation of the custom dialog used for changing the setting of the reader
+ * 
+ * @see Dialog
+ */
 public class SettingsDialog extends Dialog
 {
 	/**
-	 * Create the dialog.
-	 * @param parentShell
+	 * Create the dialog with default values from the Settings class object from the parameter
+	 * 
+	 * @param parentShell reference to the parent shell
+	 * @param windowRef   reference to the main window object
+	 * @param setting     reference to the actual setting object
+	 * 
+	 * @see Settings
+	 * @see MainWindow
 	 */
 	public SettingsDialog(Shell parentShell, MainWindow windowRef, Settings settings)
 	{
@@ -38,8 +49,9 @@ public class SettingsDialog extends Dialog
 	}
 
 	/**
-	 * Create contents of the dialog.
-	 * @param parent
+	 * Creates the dialog with all it's contents
+	 * 
+	 * @param parent reference to the parent composite object
 	 */
 	@Override
 	protected Control createDialogArea(Composite parent)
@@ -88,7 +100,8 @@ public class SettingsDialog extends Dialog
 
 	/**
 	 * Create contents of the button bar.
-	 * @param parent
+	 * 
+	 * @param parent reference to the parent composite object
 	 */
 	@Override
 	protected void createButtonsForButtonBar(Composite parent)
@@ -100,7 +113,11 @@ public class SettingsDialog extends Dialog
 	}
 
 	/**
-	 * Return the initial size of the dialog.
+	 * Return the initial size of the dialog
+	 * 
+	 * @return return the point object holding the size
+	 * 
+	 * @see Point
 	 */
 	@Override
 	protected Point getInitialSize()

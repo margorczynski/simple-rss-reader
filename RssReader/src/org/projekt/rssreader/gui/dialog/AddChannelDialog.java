@@ -21,11 +21,20 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.wb.swt.SWTResourceManager;
 
+/*
+ * Class used for creation of the custom dialog used for adding a channel
+ * 
+ * @see Dialog
+ */
 public class AddChannelDialog extends Dialog
 {
 	/**
-	 * Create the dialog.
-	 * @param parentShell
+	 * Create the dialog by calling the constructor of the superclass
+	 * 
+	 * @param parentShell the reference to the shell object
+	 * @param treeRef     the reference to the channel group tree object
+	 * 
+	 * @see ChannelGroupTree
 	 */
 	public AddChannelDialog(Shell parentShell, ChannelGroupTree treeRef)
 	{
@@ -35,8 +44,11 @@ public class AddChannelDialog extends Dialog
 	}
 
 	/**
-	 * Create contents of the dialog.
-	 * @param parent
+	 * Creates the dialog with all its contents
+	 * 
+	 * @param parent reference to the paren composite object of the dialog
+	 * 
+	 * @return Control reference to the control object
 	 */
 	@Override
 	protected Control createDialogArea(Composite parent)
@@ -91,7 +103,8 @@ public class AddChannelDialog extends Dialog
 
 	/**
 	 * Create contents of the button bar.
-	 * @param parent
+	 * 
+	 * @param parent reference to the paren composite object of the dialog
 	 */
 	@Override
 	protected void createButtonsForButtonBar(Composite parent)
@@ -103,7 +116,11 @@ public class AddChannelDialog extends Dialog
 	}
 
 	/**
-	 * Return the initial size of the dialog.
+	 * Return the initial size of the dialog
+	 * 
+	 * @return return the point object holding the size
+	 * 
+	 * @see Point
 	 */
 	@Override
 	protected Point getInitialSize()
