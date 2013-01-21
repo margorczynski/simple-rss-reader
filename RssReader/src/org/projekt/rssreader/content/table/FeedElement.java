@@ -4,8 +4,19 @@ import com.sun.syndication.feed.synd.SyndEntry;
 
 import java.util.Date;
 
+/*
+ * Class used for creating container objects for the feed entries.
+ * Stores the head line, received date, publish date and URL.
+ * 
+ * @see SyndEntry
+ */
 public class FeedElement
 {
+	/*
+	 * The constructor of the entry. Sets the fields using the SyndEntry object reference passed as a parameter and the current date.
+	 * 
+	 * @see Date
+	 */
 	public FeedElement(SyndEntry entry)
 	{
 		this.headline = entry.getTitle();
