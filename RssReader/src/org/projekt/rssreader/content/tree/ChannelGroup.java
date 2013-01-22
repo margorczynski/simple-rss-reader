@@ -5,8 +5,14 @@ import java.util.LinkedList;
 
 import java.io.Serializable;
 
-public class ChannelGroup implements Serializable
+/*
+ * Class used to store data about the channel groups. Contains the list of channels and the name of the group.
+ */
+public class ChannelGroup
 {
+	/*
+	 * The constructor of the group. Sets the name of the group using a string passed as an argument.
+	 */
 	public ChannelGroup(String name)
 	{
 		this.name = name;
@@ -37,8 +43,6 @@ public class ChannelGroup implements Serializable
 		return channels;
 	}
 
-	static final long serialVersionUID = 1L;
-	
 	private List<Channel> channels = new LinkedList<Channel>();
 	
 	private int sort;

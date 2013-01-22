@@ -3,8 +3,18 @@ package org.projekt.rssreader.content.tree;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 
+/*
+ * The content provider class for the tree. Uses the ChannelModel class for creating the model.
+ * For more information please check the SWT docs on the tree content provider interface.
+ * 
+ * @see ITreeContentProvider
+ * @see ChannelModel
+ */
 public class ChannelContentProvider implements ITreeContentProvider
 {
+	/*
+	 * The constructor of the provider. Sets the reference to the model using a reference passed as an argument.
+	 */
 	public ChannelContentProvider(ChannelModel model)
 	{
 		this.model = model;

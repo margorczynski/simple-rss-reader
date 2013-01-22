@@ -37,6 +37,8 @@ public class Channel
 	
 	/*
 	 * Returns the reference to the list with the entries.
+	 * 
+	 * @return the reference to the list with the entries
 	 */
 	public List<SyndEntry> getFeedEntries()
 	{
@@ -45,6 +47,8 @@ public class Channel
 	
 	/*
 	 * Returns the reference to the parent group.
+	 * 
+	 * @return the reference to the parent group
 	 */
 	public ChannelGroup getGroupRef()
 	{
@@ -53,6 +57,8 @@ public class Channel
 	
 	/*
 	 * Returns the title of the channel.
+	 * 
+	 * @return the title of the channel
 	 */
 	public String getTitle()
 	{
@@ -61,6 +67,8 @@ public class Channel
 	
 	/*
 	 * Returns the description of the channel.
+	 * 
+	 * @return the description of the channel
 	 */
 	public String getDescription()
 	{
@@ -69,6 +77,8 @@ public class Channel
 	
 	/*
 	 * Returns the URL of the channel.
+	 * 
+	 * @return the URL of the channel
 	 */
 	public String getUrl()
 	{
