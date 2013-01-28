@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rssReader>
-  <defaultUrl>www.wat.edu.pl</defaultUrl>
-  <loadAtStart>true</loadAtStart>
+  <defaultUrl>www.test.pl</defaultUrl>
+  <loadAtStart>false</loadAtStart>
 </rssReader>
 
