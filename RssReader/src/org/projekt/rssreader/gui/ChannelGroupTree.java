@@ -20,12 +20,12 @@ import org.projekt.rssreader.content.tree.Channel;
 import org.projekt.rssreader.content.tree.ChannelModel;
 import org.projekt.rssreader.content.tree.ChannelLabelProvider;
 
-/*
+/**
  * Class used for creation of the object representing the tree of the main window
  */
 public class ChannelGroupTree
 {
-	/*
+	/**
 	 * The constructor of the tree object. It takes the shell reference as a parameter. Creates the TreeViewer and Tree objects and assigns to them providers and listeners
 	 * 
 	 * @see TreeViewer
@@ -63,7 +63,7 @@ public class ChannelGroupTree
 		treeViewer.setInput(gr);
 	}
 	
-	/*
+	/**
 	 * Returns the reference to the tree object
 	 * 
 	 * @return the reference to the tree object
@@ -73,7 +73,7 @@ public class ChannelGroupTree
 		return tree;
 	}
 	
-	/*
+	/**
 	 * Returns the reference to the form data of the tree
 	 * 
 	 * @return the reference to the form data object
@@ -83,7 +83,7 @@ public class ChannelGroupTree
 		return fdTree;
 	}
 	
-	/*
+	/**
 	 * The double click listener class of the tree viewer. When a group name is double clicked it expands the group, if a channel then it loads the entries to the table
 	 * 
 	 * @see IDoubleClickListener
@@ -109,7 +109,7 @@ public class ChannelGroupTree
 	      }
 	}
 	
-	/*
+	/**
 	 * The key listener of the tree. On pressing delete depending on the selected item it removes channels or whole groups, on pressing enter it loads the channel entries to the table
 	 * 
 	 * @see KeyAdapter
@@ -158,7 +158,7 @@ public class ChannelGroupTree
 
 	}
 	
-	/*
+	/**
 	 * Sets the table object reference
 	 * 
 	 *  @param tableRef the reference to the table object
@@ -168,7 +168,7 @@ public class ChannelGroupTree
 		this.tableRef = tableRef;
 	}
 	
-	/*
+	/**
 	 * Clears the model and refreshes the tree viewer for changes to be visible
 	 */
 	public void reset()
@@ -178,7 +178,7 @@ public class ChannelGroupTree
 		treeViewer.refresh();
 	}
 	
-	/*
+	/**
 	 * Adds a channel group to the model and refreshes the tree viewer for changes to be visible
 	 * 
 	 * @param groupName a string containing the name of the group
@@ -194,7 +194,7 @@ public class ChannelGroupTree
 		treeViewer.refresh();
 	}
 	
-	/*
+	/**
 	 * Adds a channel group to the model and refreshes the tree viewer for changes to be visible. Uses a list reference as a parameter
 	 * 
 	 * @param channelGroups reference to the list containing the channel groups
@@ -208,7 +208,7 @@ public class ChannelGroupTree
 		treeViewer.refresh();
 	}
 	
-	/*
+	/**
 	 * Adds a channel to a group. It takes the channels URL and the group name as parameters
 	 * 
 	 * @param channelGroupName string containing the names of the group
@@ -238,7 +238,7 @@ public class ChannelGroupTree
 		treeViewer.refresh();
 	}
 	
-	/*
+	/**
 	 * Returns the reference to the list with channel groups
 	 * 
 	 * @return the reference to the list object with channel groups

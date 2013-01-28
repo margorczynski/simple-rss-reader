@@ -4,7 +4,7 @@ import org.eclipse.jface.viewers.LabelProvider;
 
 import org.eclipse.swt.graphics.Image;
 
-/*
+/**
  * The label provider class of the tree. It extends the LabelProvider class.
  * Check the LabelProvider docs for more detailed information.
  * 

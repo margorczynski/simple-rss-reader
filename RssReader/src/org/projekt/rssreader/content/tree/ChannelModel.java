@@ -3,12 +3,12 @@ package org.projekt.rssreader.content.tree;
 import java.util.List;
 import java.util.LinkedList;
 
-/*
+/**
  * Class representing the model of the tree. It holds all data needed by the tree.
  */
 public class ChannelModel
 {
-	/*
+	/**
 	 * The constructor of the model. It adds a basic example group and channels at creation.
 	 */
 	public ChannelModel()
@@ -26,7 +26,7 @@ public class ChannelModel
 		basicGroup.getChannels().add(basicChannel2);
 	}
 	
-	/*
+	/**
 	 * Returns the reference to the list of channel groups.
 	 * 
 	 * @return the reference to the channel group list
@@ -36,7 +36,7 @@ public class ChannelModel
 		return groups;
 	}
 	
-	/*
+	/**
 	 * Adds a channel group to the model.
 	 * 
 	 * @param name the name of the new group
@@ -46,7 +46,7 @@ public class ChannelModel
 		groups.add(new ChannelGroup(name));
 	}
 	
-	/*
+	/**
 	 * Adds a channel to a group.
 	 * 
 	 * @param channelGroupName the name of the group 

@@ -10,13 +10,13 @@ import com.sun.syndication.feed.synd.SyndFeed;
 import com.sun.syndication.io.SyndFeedInput;
 import com.sun.syndication.io.XmlReader;
 
-/*
+/**
  * Class used for aggregating RSS feeds and required data from it
  * Uses ROME for RSS service IO
  */
 public class RssChannelReader
 {
-	/*
+	/**
 	 * The constructor of the class. Takes the feeds URL as an parameter and pulls all needed data from the feed
 	 * 
 	 * @param feedURL String object reference containing the hyperlink adress of the feed

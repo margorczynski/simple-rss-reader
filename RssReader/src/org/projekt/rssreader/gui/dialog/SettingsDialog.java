@@ -20,7 +20,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 
-/*
+/**
  * Class used for creation of the custom dialog used for changing the setting of the reader
  * 
  * @see Dialog

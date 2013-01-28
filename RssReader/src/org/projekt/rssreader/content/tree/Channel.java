@@ -6,7 +6,7 @@ import org.projekt.rssreader.main.RssChannelReader;
 
 import com.sun.syndication.feed.synd.SyndEntry;
 
-/*
+/**
  * Class used to store data about the feed channels. Contains the title, description and URL of the channel. Stores a list of entries and a reference to the group it belongs.
  * 
  * @see SyndEntry
@@ -14,7 +14,7 @@ import com.sun.syndication.feed.synd.SyndEntry;
  */
 public class Channel
 {
-	/*
+	/**
 	 * The constructor of the channel object. Creates a RssChannelReader object with an URL passed to the constructor and sets the fields with data it pulls from it.
 	 * Also sets the parent group reference from the reference passed as an parameter.
 	 * 
@@ -35,7 +35,7 @@ public class Channel
 		feedEntries = reader.getFeedEntries();
 	}
 	
-	/*
+	/**
 	 * Returns the reference to the list with the entries.
 	 * 
 	 * @return the reference to the list with the entries
@@ -45,7 +45,7 @@ public class Channel
 		return feedEntries;
 	}
 	
-	/*
+	/**
 	 * Returns the reference to the parent group.
 	 * 
 	 * @return the reference to the parent group
@@ -55,7 +55,7 @@ public class Channel
 		return groupRef;
 	}
 	
-	/*
+	/**
 	 * Returns the title of the channel.
 	 * 
 	 * @return the title of the channel
@@ -65,7 +65,7 @@ public class Channel
 		return title;
 	}
 	
-	/*
+	/**
 	 * Returns the description of the channel.
 	 * 
 	 * @return the description of the channel
@@ -75,7 +75,7 @@ public class Channel
 		return description;
 	}
 	
-	/*
+	/**
 	 * Returns the URL of the channel.
 	 * 
 	 * @return the URL of the channel

@@ -18,12 +18,12 @@ import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.dialogs.IInputValidator;
 import org.eclipse.jface.window.Window;
 
-/*
+/**
  * Class used for creation of the object representing the top toolbar of the main window
  */
 public class ReaderMenuToolbar
 {
-	/*
+	/**
 	 * The constructor of the toolbar class. Takes the shell and main window reference as parameters
 	 * Then creates the toolbars items and sets their listeners
 	 * 
@@ -91,7 +91,7 @@ public class ReaderMenuToolbar
 		mntmAbout.setText("About");
 	}
 	
-	/*
+	/**
 	 * The listener of the About menu item. Creates a simple message box with information about the application
 	 * 
 	 * @see SelectionAdapter
@@ -108,7 +108,7 @@ public class ReaderMenuToolbar
 		}
 	}
 	
-	/*
+	/**
 	 * The listener of the New item menu item. It just resets the whole application using the resetAll() method of the main window
 	 * 
 	 * @see MainWindow
@@ -123,7 +123,7 @@ public class ReaderMenuToolbar
 		}
 	}
 	
-	/*
+	/**
 	 * The listener of the Open menu item. It creates a file dialog and uses it's return value to load content to the tree from a file
 	 * 
 	 * @see FileDialog
@@ -148,7 +148,7 @@ public class ReaderMenuToolbar
 		}
 	}
 	
-	/*
+	/**
 	 * The listener of the Save menu item. It simply calls the saveToFile() method of the main window to save the tree's content to a file
 	 * 
 	 * @see SelectionAdapter
@@ -162,7 +162,7 @@ public class ReaderMenuToolbar
 		}
 	}
 	
-	/*
+	/**
 	 * The listener of the Exit menu item. It just exits the application by closing the main shell
 	 * 
 	 * @see SelectionAdapter
@@ -176,7 +176,7 @@ public class ReaderMenuToolbar
 		}
 	}
 	
-	/*
+	/**
 	 * The listener of the Add channel menu item. It creates a simple input dialog that's used for entering the created group name and creates it by using the addChannelGroup() method of the tree
 	 * The input is validated by an inner class that implements the IInputValidator interface
 	 * 
@@ -212,7 +212,7 @@ public class ReaderMenuToolbar
 		}
 	}
 	
-	/*
+	/**
 	 * The listener of the Add channel menu item. It creates a custom dialog used for adding a channel to the tree
 	 * 
 	 * @see SelectionAdapter
@@ -229,7 +229,7 @@ public class ReaderMenuToolbar
 		}
 	}
 	
-	/*
+	/**
 	 * The listener of the Settings menu item. It creates a custom dialog used for modifying the settings of the application and saving them to a file
 	 * 
 	 * @see SelectionAdapter
@@ -246,7 +246,7 @@ public class ReaderMenuToolbar
 		}
 	}
 	
-	/*
+	/**
 	 * Sets the ChannelGroupTree object reference used for calling it's methods
 	 * 
 	 * @param treeRef the reference to the tree object

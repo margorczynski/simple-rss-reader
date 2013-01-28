@@ -17,13 +17,13 @@ import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
 import org.jdom.input.SAXBuilder;
 
-/*
+/**
  * Class used for the readers file IO, can save/load settings and groups with channels to/from files in XML format
  * Uses the JDOM library for XML IO
  */
 public class ReaderFileIO
 {
-	/*
+	/**
 	 * Saves channel groups to a file (groups.xml by default)
 	 * 
 	 * @param channelGroups a reference to a list containing the channel groups

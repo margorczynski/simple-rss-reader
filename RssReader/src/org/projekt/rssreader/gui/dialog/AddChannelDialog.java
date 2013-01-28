@@ -21,7 +21,7 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.wb.swt.SWTResourceManager;
 
-/*
+/**
  * Class used for creation of the custom dialog used for adding a channel
  * 
  * @see Dialog

@@ -5,7 +5,7 @@ import java.util.LinkedList;
 
 import com.sun.syndication.feed.synd.SyndEntry;
 
-/*
+/**
  * The content provider enum of the table. For more information check the SWT docs.
  * It is used as an single instance.
  * 
@@ -15,7 +15,7 @@ public enum TableModelProvider
 {
 	INSTANCE;
 	
-	/*
+	/**
 	 * The constructor of the provider. It creates a new linked list referenced by feedElements.
 	 * 
 	 * @see LinkedList
@@ -25,7 +25,7 @@ public enum TableModelProvider
 		feedElements = new LinkedList<FeedElement>();
 	}
 	
-	/*
+	/**
 	 * Returns the reference to the list containing the feed elements
 	 */
 	public List<FeedElement> getFeedElements()
@@ -33,7 +33,7 @@ public enum TableModelProvider
 		return feedElements;
 	}
 	
-	/*
+	/**
 	 * Sets the feed elements by clearing the actual ones and repopulating the list with a list of SyndEntry objects passed as an parameter.
 	 * 
 	 * @see FeedElement
@@ -48,7 +48,7 @@ public enum TableModelProvider
 		}
 	}
 	
-	/*
+	/**
 	 * Clears the list of entries
 	 */
 	public void clear()
