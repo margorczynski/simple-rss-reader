@@ -1,0 +1,6 @@
+org.eclipse.wb.swt
+org.projekt.rssreader.content.table
+org.projekt.rssreader.content.tree
+org.projekt.rssreader.gui
+org.projekt.rssreader.gui.dialog
+org.projekt.rssreader.main

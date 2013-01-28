@@ -3,8 +3,6 @@ package org.projekt.rssreader.content.tree;
 import java.util.List;
 import java.util.LinkedList;
 
-import java.io.Serializable;
-
 /*
  * Class used to store data about the channel groups. Contains the list of channels and the name of the group.
  */
