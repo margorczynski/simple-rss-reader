@@ -48,8 +48,6 @@ public class ChannelGroupTree
 		
 		rssXmlViewer = new Text(shl, SWT.BORDER | SWT.READ_ONLY | SWT.H_SCROLL | SWT.V_SCROLL);
 		
-		rssXmlViewer.setText("TEST");
-		
 		contentProvider = new ChannelContentProvider(model);
 		labelProvider = new ChannelLabelProvider();
 		
