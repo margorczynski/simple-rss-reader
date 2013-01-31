@@ -1,6 +1,10 @@
 package org.projekt.rssreader.gui;
 
 import java.util.List;
+import java.net.URL;
+import java.net.URLConnection;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.jface.viewers.TreeViewer;
@@ -13,6 +17,12 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Text;
+import org.eclipse.swt.graphics.Device;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.browser.*;
 
 import org.projekt.rssreader.content.tree.ChannelContentProvider;
 import org.projekt.rssreader.content.tree.ChannelGroup;
@@ -33,8 +43,12 @@ public class ChannelGroupTree
 	 * @see Shell
 	 */
 	public ChannelGroupTree(Shell shl)
-	{
-		treeViewer = new TreeViewer(shl, SWT.BORDER | SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
+	{	
+		treeViewer = new TreeViewer(shl, SWT.BORDER | SWT.SINGLE | SWT.H_SCROLL | SWT.V_SCROLL);
+		
+		rssXmlViewer = new Text(shl, SWT.BORDER | SWT.READ_ONLY | SWT.H_SCROLL | SWT.V_SCROLL);
+		
+		rssXmlViewer.setText("TEST");
 		
 		contentProvider = new ChannelContentProvider(model);
 		labelProvider = new ChannelLabelProvider();
@@ -44,11 +58,21 @@ public class ChannelGroupTree
 		
 		tree = treeViewer.getTree();
 		fdTree = new FormData();
-		fdTree.bottom = new FormAttachment(100, -10);
+		fdTree.bottom = new FormAttachment(100, -325);
 		fdTree.top = new FormAttachment(0, 5);
 		fdTree.left = new FormAttachment(0, 5);
 		tree.setLayoutData(fdTree);
 		tree.setSortDirection(SWT.DOWN);
+		
+		Color background = tree.getBackground();
+		rssXmlViewer.setBackground(background);
+		
+		fdXml = new FormData();
+		fdXml.bottom = new FormAttachment(100, -10);
+		fdXml.left = new FormAttachment(0, 5);
+		fdXml.top = new FormAttachment(tree);
+		rssXmlViewer.setLayoutData(fdXml);
+		
 		
 		ChannelGroup gr = new ChannelGroup("TEST");
 		
@@ -61,6 +85,12 @@ public class ChannelGroupTree
 		tree.addKeyListener(new TreeKeyListener());
 		
 		treeViewer.setInput(gr);
+	}
+	
+	void setRight(Browser browser)
+	{
+		fdXml.right = new FormAttachment(browser, -5);
+		rssXmlViewer.setLayoutData(fdXml);
 	}
 	
 	/**
@@ -105,6 +135,15 @@ public class ChannelGroupTree
         		Channel channel = (Channel) thisSelection.getFirstElement();
         		         
         		tableRef.updateFeedEntries(channel.getFeedEntries());
+        		
+        		try
+        		{
+        			setRssXml(channel.getUrl());
+        		}
+        		catch(Exception e)
+        		{
+        			e.printStackTrace();
+        		}
         	}
 	      }
 	}
@@ -253,7 +292,28 @@ public class ChannelGroupTree
 		return model.getGroups();
 	}
 	
+	private void setRssXml(String url) throws Exception
+	{
+		URL rssUrl = new URL(url);
+		
+		URLConnection con = rssUrl.openConnection();
+		
+		BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+		
+		 String line = in.readLine();
+		 
+		 StringBuilder builder = new StringBuilder();
+		 do 
+		 {
+			 builder.append(line+"\n");
+		 } while ( (line = in.readLine()) != null);
+		 
+		 rssXmlViewer.setText(builder.toString());
+	}
 	
+	
+	private Text rssXmlViewer;
+	private FormData fdXml;
 	
 	private TreeViewer treeViewer;
 	

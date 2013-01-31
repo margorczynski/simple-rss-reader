@@ -81,6 +81,8 @@ public class MainWindow
 		chnViewer = new ChannelContentViewer(shlSimpleRssReader, chnTree.getTree(), chnTable.getTableComposite(), chnTree.getTreeFormData(), chnTable.getTableFormData());
 		chnTable.setContentRef(chnViewer);
 		
+		chnTree.setRight(chnViewer.getBrowserRef());
+		
 		if(settings.isLoadAtStart() && (new File("default.xml")).exists()) openFromFile("default.xml");
 		
 		chnViewer.setDefaultUrl(settings.getDefaultUrl());

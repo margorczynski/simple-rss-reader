@@ -72,6 +72,10 @@ public class ChannelContentViewer
 		browser.setUrl(defaultUrl);
 	}
 	
+	public Browser getBrowserRef()
+	{
+		return browser;
+	}
 	
 	private Browser browser;
 	
