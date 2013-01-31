@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rssReader>
-  <defaultUrl>www.google.pl</defaultUrl>
-  <loadAtStart>true</loadAtStart>
+	<defaultUrl>www.google.pl</defaultUrl>
+	<loadAtStart>true</loadAtStart>
 </rssReader>
 

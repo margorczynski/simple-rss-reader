@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rssReader>
-  <channelGroup name="aaa">
-    <feedUrl0>http://polonia.wp.pl/rss.xml?country=3</feedUrl0>
-    <numberOfUrls>1</numberOfUrls>
-  </channelGroup>
+	<channelGroup name="aaa">
+		<feedUrl0>http://polonia.wp.pl/rss.xml?country=3</feedUrl0>
+		<numberOfUrls>1</numberOfUrls>
+	</channelGroup>
 </rssReader>
 
