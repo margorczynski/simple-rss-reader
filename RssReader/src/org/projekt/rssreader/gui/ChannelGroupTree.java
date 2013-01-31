@@ -223,6 +223,11 @@ public class ChannelGroupTree
 		
 		for(ChannelGroup group : model.getGroups())
 		{
+			for(Channel channel : group.getChannels())
+			{
+				if(channel.getUrl().equals(channelUrl)) return;
+			}
+			
 			if(group.getName().equals(channelGroupName))
 			{
 				channelGroup = group;
@@ -231,9 +236,9 @@ public class ChannelGroupTree
 			}
 		}
 		
-		Channel channel = new Channel(channelUrl, channelGroup);
+		Channel newChannel = new Channel(channelUrl, channelGroup);	
 		
-		channelGroup.getChannels().add(channel);
+		channelGroup.getChannels().add(newChannel);
 		
 		treeViewer.refresh();
 	}
